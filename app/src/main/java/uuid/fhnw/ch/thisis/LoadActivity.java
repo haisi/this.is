@@ -12,7 +12,15 @@ import java.util.Date;
  */
 public class LoadActivity extends Activity {
 
-    private static final long MIN_MILLISECONDS_OF_SPLASH_SCREEN = 3500;
+    static {
+        if (BuildConfig.DEBUG) {
+            MIN_MILLISECONDS_OF_SPLASH_SCREEN = 0;
+        } else {
+            MIN_MILLISECONDS_OF_SPLASH_SCREEN = 2000;
+        }
+    }
+
+    private static final long MIN_MILLISECONDS_OF_SPLASH_SCREEN;
     private Date startTime;
 
     @Override
