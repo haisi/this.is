@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
@@ -27,20 +28,20 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/chatHistoryFriendName"
+                android:id="@+id/questionerName"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hans Peter"/>
+                tools:text="Hans Peter"/>
 
             <TextView
-                android:id="@+id/chatHistoryLastDate"
+                android:id="@+id/questionAskedDate"
                 android:gravity="center_horizontal"
                 android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="13sp"
-                android:text="12:33"/>
+                tools:text="12:33"/>
 
         </LinearLayout>
 
@@ -51,7 +52,7 @@
             android:layout_marginTop="3dp">
 
             <TextView
-                android:id="@+id/chatHistoryFriendLastMessage"
+                android:id="@+id/questionTitle"
                 android:layout_weight="1"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -60,20 +61,34 @@
                 android:text="Lorem ipsum dolor sit
 amet, consectetuer adipiscing elit. Aenean commo"/>
 
-            <TextView
-                android:id="@+id/chatHistoryFriendMissedMessages"
-                android:gravity="center_horizontal"
-                android:layout_gravity="center_vertical"
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:layout_marginLeft="5dp"
-                android:textColor="#ffffff"
-                android:background="#ffff3d33"
-                android:text="5"/>
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/questionStatusImage"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@color/colorPrimaryDark"/>
+
+                <TextView
+                    android:id="@+id/numberOfAnswers"
+                    android:gravity="center_horizontal"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="#000000"
+                    tools:text="Answers 4"/>
+
+
+            </LinearLayout>
 
         </LinearLayout>
 

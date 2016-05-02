@@ -4,8 +4,12 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import uuid.fhnw.ch.thisis.business.Question;
 
@@ -14,8 +18,8 @@ import uuid.fhnw.ch.thisis.business.Question;
  */
 public class QuestionsFeedAdapter extends ArrayAdapter<Question> {
 
-    public QuestionsFeedAdapter(Context context, int resource, List<Question> objects) {
-        super(context, resource, objects);
+    public QuestionsFeedAdapter(Context context, List<Question> objects) {
+        super(context, R.layout.row_layout_question_feed, objects);
     }
 
     @Override
@@ -29,14 +33,40 @@ public class QuestionsFeedAdapter extends ArrayAdapter<Question> {
             holder = (ViewHolder) convertView.getTag();
         }
 
+        Question question = getItem(position);
+        String title = question.getTitle();
+        Date createdDate = question.getCreated();
+        int numberOfAnswers = question.getAnswers().size();
+        boolean answered = question.isAnswered();
+        if (answered) {
+            holder.image.setImageResource(R.drawable.ic_menu_camera);
+        } else {
+            holder.image.setImageResource(R.drawable.ic_menu_send);
+        }
+
+        holder.title.setText(title);
+        holder.date.setText(createdDate.toString());
+        holder.numberOfAnswers.setText(String.valueOf(numberOfAnswers));
+
         return convertView;
     }
 
     class ViewHolder {
-        // TextView title;
+
+        ImageView image;
+        TextView title;
+        TextView date;
+
+        ImageView statusImage;
+        TextView numberOfAnswers;
 
         public ViewHolder(View view){
-            // title = (TextView) view.findViewById(R.id.mysdfsd);
+            image = (ImageView) view.findViewById(R.id.questionImage);
+            title = (TextView) view.findViewById(R.id.questionTitle);
+            date = (TextView) view.findViewById(R.id.questionAskedDate);
+
+            statusImage = (ImageView) view.findViewById(R.id.questionStatusImage);
+            numberOfAnswers = (TextView) view.findViewById(R.id.numberOfAnswers);
             view.setTag(this);
         }
     }

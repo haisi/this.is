@@ -12,6 +12,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+
+import uuid.fhnw.ch.thisis.business.DataService;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -40,6 +45,10 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        QuestionsFeedAdapter feedAdapter = new QuestionsFeedAdapter(getBaseContext(), new ArrayList<>(DataService.INSTACNE.allQuestions));
+        ListView questionFeed = (ListView) findViewById(R.id.questionFeed);
+        questionFeed.setAdapter(feedAdapter);
     }
 
     @Override
@@ -84,9 +93,9 @@ public class MainActivity extends AppCompatActivity
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
 
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
+//        } else if (id == R.id.nav_slideshow) {
+//
+//        } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
 
