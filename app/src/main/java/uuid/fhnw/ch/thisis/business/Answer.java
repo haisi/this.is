@@ -9,16 +9,15 @@ public class Answer implements Comparable<Answer> {
 
     private final long id;
     private final String answer;
-    private final Date created;
+    private Date created = new Date();
 
     private Question question;
     private User user;
 
 
-    public Answer(long id, String answer, Date created, Question question, User user) {
+    public Answer(long id, String answer, Question question, User user) {
         this.id = id;
         this.answer = answer;
-        this.created = created;
         this.question = question;
         this.user = user;
     }

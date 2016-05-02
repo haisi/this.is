@@ -43,6 +43,10 @@ public class User {
         this.questions = questions;
     }
 
+    public void addQuestion(Question question) {
+        this.questions.add(question);
+    }
+
     public Set<Answer> getAnswers() {
         return answers;
     }

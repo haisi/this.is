@@ -12,7 +12,8 @@ public class Question implements Comparable<Question> {
     private final long id;
     private final String title;
     private User questioner;
-    private Date created;
+    private Date created = new Date();
+    private boolean answered;
 
     private String description;
     private String imageName;
@@ -70,6 +71,14 @@ public class Question implements Comparable<Question> {
 
     public void setAnswers(Set<Answer> answers) {
         this.answers = answers;
+    }
+
+    public boolean isAnswered() {
+        return answered;
+    }
+
+    public void setAnswered(boolean answered) {
+        this.answered = answered;
     }
 
     @Override
