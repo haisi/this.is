@@ -6,7 +6,7 @@ import java.util.TreeSet;
 /**
  * @author Hasan Kara <hasan.kara@fhnw.ch>
  */
-public class User {
+public class User implements Comparable<User> {
 
     private long id;
     private String name;
@@ -61,5 +61,10 @@ public class User {
                 "name='" + name + '\'' +
                 ", id=" + id +
                 '}';
+    }
+
+    @Override
+    public int compareTo(User another) {
+        return 0;
     }
 }

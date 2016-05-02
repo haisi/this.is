@@ -39,9 +39,9 @@ public class QuestionsFeedAdapter extends ArrayAdapter<Question> {
         int numberOfAnswers = question.getAnswers().size();
         boolean answered = question.isAnswered();
         if (answered) {
-            holder.image.setImageResource(R.drawable.ic_menu_camera);
+            holder.statusImage.setImageResource(R.drawable.ic_menu_camera);
         } else {
-            holder.image.setImageResource(R.drawable.ic_menu_send);
+            holder.statusImage.setImageResource(R.drawable.ic_menu_send);
         }
 
         holder.title.setText(title);
