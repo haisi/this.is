@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -52,9 +53,23 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         ArrayList<Question> allQuestions = new ArrayList<>(DataService.INSTACNE.allQuestions);
-        QuestionsFeedAdapter feedAdapter = new QuestionsFeedAdapter(getBaseContext(), allQuestions);
-        ListView questionFeed = (ListView) findViewById(R.id.questionFeed);
+        final QuestionsFeedAdapter feedAdapter = new QuestionsFeedAdapter(getBaseContext(), allQuestions);
+        final ListView questionFeed = (ListView) findViewById(R.id.questionFeed);
         questionFeed.setAdapter(feedAdapter);
+
+        questionFeed.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Question selectedQuestion = feedAdapter.getItem(position);
+
+                final Intent intent = new Intent(getBaseContext(), QuestionActivity.class);
+                Bundle mBundle = new Bundle();
+                mBundle.putLong("selected_question", selectedQuestion.getId());
+                intent.putExtras(mBundle);
+
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
