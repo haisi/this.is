@@ -30,7 +30,7 @@
 
         <activity
             android:name=".AskQuestionActivity"
-            android:label="Sign up"
+            android:label="Ask question"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
