@@ -18,6 +18,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 import uuid.fhnw.ch.thisis.business.DataService;
+import uuid.fhnw.ch.thisis.business.Question;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -50,7 +51,8 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        QuestionsFeedAdapter feedAdapter = new QuestionsFeedAdapter(getBaseContext(), new ArrayList<>(DataService.INSTACNE.allQuestions));
+        ArrayList<Question> allQuestions = new ArrayList<>(DataService.INSTACNE.allQuestions);
+        QuestionsFeedAdapter feedAdapter = new QuestionsFeedAdapter(getBaseContext(), allQuestions);
         ListView questionFeed = (ListView) findViewById(R.id.questionFeed);
         questionFeed.setAdapter(feedAdapter);
     }
