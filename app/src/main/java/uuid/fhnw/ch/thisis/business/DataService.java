@@ -21,7 +21,10 @@ public enum DataService {
 
 
         Question hansQuestion1 = new Question(1, "What does this sign mean?");
+        hansQuestion1.setDescription("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.");
         hansQuestion1.setQuestioner(hans);
+//        hansQuestion1.setImageName("japanese_sign.jpg");
+        hansQuestion1.setImageName("japanese_sign");
         hans.addQuestion(hansQuestion1);
 
         Question hansQuestion2 = new Question(2, "Bla bla bla");

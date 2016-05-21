@@ -26,5 +26,15 @@
         android:layout_height="wrap_content"
         tools:text="Here comes the title"/>
 
+    <ImageView
+        android:id="@+id/questionImageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/questionDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 
 </LinearLayout>

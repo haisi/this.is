@@ -1,6 +1,7 @@
 package uuid.fhnw.ch.thisis;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -42,6 +43,14 @@ public class QuestionsFeedAdapter extends ArrayAdapter<Question> {
             holder.statusImage.setImageResource(R.drawable.ic_menu_camera);
         } else {
             holder.statusImage.setImageResource(R.drawable.ic_menu_send);
+        }
+
+        if (question.getImageName() != null) {
+            Resources res = getContext().getResources();
+            int resId = res.getIdentifier(question.getImageName(), "drawable", getContext().getPackageName());
+            holder.image.setImageResource(resId);
+        } else {
+            holder.image.setVisibility(View.GONE);
         }
 
         holder.title.setText(title);
