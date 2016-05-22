@@ -16,12 +16,14 @@
         android:text="To sign up to this.is you need to log in with a twitter or facebook account."/>
 
     <Button
+        android:onClick="withFacebook"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:text="Sign up with facebook"/>
 
     <Button
+        android:onClick="withTwitter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sign up with twitter"/>

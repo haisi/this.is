@@ -1,8 +1,10 @@
 package uuid.fhnw.ch.thisis;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 /**
  * @author Hasan Kara <hasan.kara@fhnw.ch>
@@ -13,5 +15,19 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_up_screen);
+    }
+
+    public void withFacebook(View view) {
+        goToMainPage();
+    }
+
+    public void withTwitter(View view) {
+        goToMainPage();
+    }
+
+    private void goToMainPage() {
+        Intent intent = new Intent(getBaseContext(), MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
