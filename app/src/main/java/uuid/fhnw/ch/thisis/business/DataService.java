@@ -37,6 +37,7 @@ public enum DataService {
         hansQuestion2.setQuestioner(hans);
         hansQuestion2.setDescription("We are in a group watching a movie and would love to here you suggestions!");
         hans.addQuestion(hansQuestion2);
+        addChatMessagesToQuestion2(hansQuestion2);
 
         Question sandraQuestion = new Question(3, "What can I cook with this?");
         sandraQuestion.setQuestioner(sandra);
@@ -46,6 +47,11 @@ public enum DataService {
         addAllQuestions(hansQuestion1, hansQuestion2, sandraQuestion);
         addAllUsers(hans, sandra, reto);
 
+    }
+
+    private void addChatMessagesToQuestion2(Question hansQuestion2) {
+        hansQuestion2.addAnswer(new Answer("How about beer pong?", reto));
+        hansQuestion2.addAnswer(new Answer("I agree with reto. Beer pong is greate fun!", sandra));
     }
 
     private void addChatMessagesToQuestion1(Question hansQuestion1) {
