@@ -24,6 +24,8 @@ import uuid.fhnw.ch.thisis.business.Question;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private QuestionsFeedAdapter feedAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +55,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         ArrayList<Question> allQuestions = new ArrayList<>(DataService.INSTACNE.allQuestions);
-        final QuestionsFeedAdapter feedAdapter = new QuestionsFeedAdapter(getBaseContext(), allQuestions);
+        feedAdapter = new QuestionsFeedAdapter(getBaseContext(), allQuestions);
         final ListView questionFeed = (ListView) findViewById(R.id.questionFeed);
         questionFeed.setAdapter(feedAdapter);
 
@@ -70,6 +72,12 @@ public class MainActivity extends AppCompatActivity
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        feedAdapter.notifyDataSetChanged();
     }
 
     @Override
