@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/toolBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
@@ -20,28 +21,58 @@
     </android.support.design.widget.AppBarLayout>
 
     <LinearLayout
+        android:layout_above="@+id/askQuestionButton"
+        android:layout_below="@+id/toolBar"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
+        <EditText
+            android:background="@drawable/question_description_bg"
+            android:layout_margin="10dp"
             android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
+            android:maxLength="80"
+            android:maxLines="2"
             android:hint="Put your question here"
              />
 
-        <ImageView
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:src="@android:drawable/ic_menu_camera"/>
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/image_bg"
+                android:src="@drawable/ic_menu_camera"/>
+
+            <TextView
+                android:padding="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#4e4e4e"
+                android:textColor="#c1c1c1"
+                android:text="Optionally add an image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
 
         <EditText
             android:id="@+id/questionDescriptionEdit"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/question_description_bg"
             android:textCursorDrawable="@null"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:minLines="4"
             android:padding="13dp"
             android:inputType="textMultiLine"
@@ -56,6 +87,7 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/askQuestionButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Ask question"
