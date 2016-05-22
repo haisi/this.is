@@ -93,6 +93,7 @@ public class QuestionActivity extends AppCompatActivity {
 
         addSendButtonListener();
 
+        chatList.setFocusable(false);
     }
 
     private void addSendButtonListener() {
