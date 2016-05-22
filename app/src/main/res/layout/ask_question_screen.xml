@@ -42,21 +42,22 @@
 
         <LinearLayout
             android:orientation="vertical"
+            android:background="@drawable/image_bg"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/newQuestionImage"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/image_bg"
+                android:background="@drawable/image_border"
                 android:src="@drawable/ic_menu_camera"/>
 
             <TextView
+                android:id="@+id/optionallyAddImage"
                 android:padding="5dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:background="#4e4e4e"
                 android:textColor="#c1c1c1"
                 android:text="Optionally add an image"
