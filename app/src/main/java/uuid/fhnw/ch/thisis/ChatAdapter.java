@@ -122,6 +122,11 @@ public class ChatAdapter extends BaseAdapter {
         }
     }
 
+    public void addAnswer(Answer newAnswer) {
+        question.addAnswer(newAnswer);
+        notifyDataSetChanged();
+    }
+
     class ViewHolder {
         RelativeLayout wrapper;
         TextView message;

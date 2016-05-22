@@ -61,4 +61,8 @@ public enum DataService {
             allUsers.add(user);
         }
     }
+
+    public User currentUser() {
+        return hans;
+    }
 }

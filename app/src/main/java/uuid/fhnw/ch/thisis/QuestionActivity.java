@@ -2,6 +2,7 @@ package uuid.fhnw.ch.thisis;
 
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -15,8 +16,10 @@ import android.widget.TextView;
 
 import java.util.Set;
 
+import uuid.fhnw.ch.thisis.business.Answer;
 import uuid.fhnw.ch.thisis.business.DataService;
 import uuid.fhnw.ch.thisis.business.Question;
+import uuid.fhnw.ch.thisis.business.User;
 
 /**
  * Displays a question.
@@ -83,6 +86,33 @@ public class QuestionActivity extends AppCompatActivity {
         mAdapter = new ChatAdapter(this, question);
         chatList.setAdapter(mAdapter);
 
+        addSendButtonListener();
+
+    }
+
+    private void addSendButtonListener() {
+        sendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String message = chatEditText.getText().toString();
+
+                if (!message.isEmpty()) {
+                    final User currentUser = DataService.INSTACNE.currentUser();
+                    final Answer newAnswer = new Answer(message, currentUser);
+
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            chatEditText.getText().clear();
+
+                            mAdapter.addAnswer(newAnswer);
+                        }
+                    }, 300);
+
+                }
+            }
+        });
     }
 
     @Override
