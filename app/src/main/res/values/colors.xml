@@ -3,4 +3,26 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="default_gray">#878787</color>
+    <color name="default_red">#ea5054</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="item_unselected">#5c707a</color>
+    <color name="item_selected">@color/character_twin</color>
+    <color name="default_button">#0b2a3e</color>
+    <color name="default_button_disabled">#f0242f36</color>
+    <color name="default_button_selected">#275061</color>
+    <color name="default_light_button">@color/character_twin</color>
+    <color name="default_light_button_selected">#2495d3</color>
+    <color name="green_optical_twin">#a9cb5f</color>
+    <color name="character_twin">#4fb4fa</color>
+    <color name="selected_tab">#071b27</color>
+    <color name="my_message_bg">#67ffffff</color>
+    <color name="default_font_color">#1c1c1c</color>
+    <color name="actionbar_divider_color">@color/default_gray</color>
+    <color name="premium">#d741a4</color>
+    <color name="premium_button_selected">#af2c8a</color>
+    <color name="list_view_pressed_item_color">#334fb4fa</color>
+    <color name="half_transparent_white_background">#80ffffff</color>
+
 </resources>

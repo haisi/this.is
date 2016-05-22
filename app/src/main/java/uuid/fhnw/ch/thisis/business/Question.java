@@ -1,8 +1,9 @@
 package uuid.fhnw.ch.thisis.business;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
-import java.util.TreeSet;
 
 /**
  * @author Hasan Kara <hasan.kara@fhnw.ch>
@@ -18,7 +19,7 @@ public class Question implements Comparable<Question> {
     private String description;
     private String imageName;
 
-    private Set<Answer> answers = new TreeSet<>();
+    private List<Answer> answers = new ArrayList<>();
 
     public Question(long id, String title) {
         this.id = id;
@@ -65,12 +66,16 @@ public class Question implements Comparable<Question> {
         this.imageName = imageName;
     }
 
-    public Set<Answer> getAnswers() {
+    public List<Answer> getAnswers() {
         return answers;
     }
 
-    public void setAnswers(Set<Answer> answers) {
+    public void setAnswers(List<Answer> answers) {
         this.answers = answers;
+    }
+
+    public void addAnswer(Answer answer) {
+        this.answers.add(answer);
     }
 
     public boolean isAnswered() {

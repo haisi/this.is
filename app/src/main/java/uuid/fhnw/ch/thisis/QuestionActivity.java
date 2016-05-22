@@ -7,7 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.Set;
@@ -25,6 +28,12 @@ public class QuestionActivity extends AppCompatActivity {
     private TextView titleView;
     private TextView descriptionView;
     private ImageView imageView;
+    private ListView chatList;
+    private EditText chatEditText;
+    private ImageButton sendButton;
+
+    private Question question;
+    private ChatAdapter mAdapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,10 +56,16 @@ public class QuestionActivity extends AppCompatActivity {
         imageView = (ImageView) findViewById(R.id.questionImageView);
         descriptionView = (TextView) findViewById(R.id.questionDescription);
 
+        chatList = (ListView) findViewById(R.id.chatList);
+        chatEditText = (EditText) findViewById(R.id.chatConversationEditText);
+        sendButton = (ImageButton) findViewById(R.id.sendMessageButton);
+
         for (Question question : allQuestions) {
             if (question.getId() == selectedQuestionId) {
-                titleView.setText(question.getTitle());
 
+                this.question = question;
+
+                titleView.setText(question.getTitle());
 
                 if (question.getImageName() != null) {
                     Resources res = getResources();
@@ -65,6 +80,8 @@ public class QuestionActivity extends AppCompatActivity {
             }
         }
 
+        mAdapter = new ChatAdapter(this, question);
+        chatList.setAdapter(mAdapter);
 
     }
 

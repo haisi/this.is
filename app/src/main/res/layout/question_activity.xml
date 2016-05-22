@@ -2,9 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -24,17 +24,67 @@
         android:id="@+id/questionTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Here comes the title"/>
+        tools:text="Here comes the title" />
 
     <ImageView
         android:id="@+id/questionImageView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        tools:src="@drawable/japanese_sign" />
 
     <TextView
         android:id="@+id/questionDescription"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        tools:text="Here comes the description. Lorem lipsum" />
+
+    <ListView
+        android:id="@+id/chatList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@null"
+        android:listSelector="@android:color/transparent"
+        android:stackFromBottom="true"
+        android:transcriptMode="alwaysScroll" />
+
+    <LinearLayout
+        android:id="@+id/chatConversationActionLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#87d6d6d6"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp">
+
+        <EditText
+            android:id="@+id/chatConversationEditText"
+            style="@android:style/Widget.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:maxLines="4"
+            android:scrollbars="vertical"
+            android:textColor="@android:color/black"
+            android:textCursorDrawable="@null" />
+
+        <ProgressBar
+            android:id="@+id/sendingMessageSpinner"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|right"
+            android:visibility="gone" />
+
+        <ImageButton
+            android:id="@+id/sendMessageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:paddingBottom="5dp"
+            android:paddingRight="8dp"
+            android:src="@drawable/ic_menu_send" />
+
+    </LinearLayout>
 
 
 </LinearLayout>
