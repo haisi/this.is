@@ -28,6 +28,7 @@
         android:layout_height="match_parent">
 
         <EditText
+            android:id="@+id/questionTitle"
             android:background="@drawable/question_description_bg"
             android:layout_margin="10dp"
             android:padding="10dp"

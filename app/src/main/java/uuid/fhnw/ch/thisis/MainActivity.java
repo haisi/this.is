@@ -17,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 import uuid.fhnw.ch.thisis.business.DataService;
 import uuid.fhnw.ch.thisis.business.Question;
@@ -77,6 +78,8 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onResume() {
         super.onResume();
+        feedAdapter.clear();
+        feedAdapter.addAll(new ArrayList<>(DataService.INSTACNE.allQuestions));
         feedAdapter.notifyDataSetChanged();
     }
 

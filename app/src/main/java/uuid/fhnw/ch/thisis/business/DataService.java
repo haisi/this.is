@@ -55,7 +55,7 @@ public enum DataService {
         hansQuestion1.addAnswer(new Answer("Thanks guys", hans));
     }
 
-    private void addAllQuestions(Question...questions) {
+    public void addAllQuestions(Question...questions) {
         for (Question question : questions) {
             allQuestions.add(question);
         }
