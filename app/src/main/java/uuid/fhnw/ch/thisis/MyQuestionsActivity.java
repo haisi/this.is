@@ -97,11 +97,16 @@ public class MyQuestionsActivity extends AppCompatActivity {
     }
 
     private void filterOnlyMyQuestions(User currentUser, ArrayList<Question> allQuestions) {
+
+        List<Question> questionsToRemove = new ArrayList<>();
+
         for (Question question : allQuestions) {
             if (!question.getQuestioner().equals(currentUser)) {
-                allQuestions.remove(question);
+                questionsToRemove.add(question);
             }
         }
+
+        allQuestions.removeAll(questionsToRemove);
     }
 
     @Override
