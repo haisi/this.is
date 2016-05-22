@@ -25,7 +25,7 @@ public enum DataService {
         reto = new User(3, "Reto");
 
         Question hansQuestion1 = new Question(1, "What does this sign mean?");
-        hansQuestion1.setDescription("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.");
+        hansQuestion1.setDescription("I'm at the kyoto central station and saw this sign. What does it mean?");
         hansQuestion1.setQuestioner(hans);
         hansQuestion1.setImageName("japanese_sign");
         hansQuestion1.setAnswered(true);
@@ -33,8 +33,9 @@ public enum DataService {
 
         addChatMessagesToQuestion1(hansQuestion1);
 
-        Question hansQuestion2 = new Question(2, "Bla bla bla");
+        Question hansQuestion2 = new Question(2, "What kind of drinking games are there?");
         hansQuestion2.setQuestioner(hans);
+        hansQuestion2.setDescription("We are in a group watching a movie and would love to here you suggestions!");
         hans.addQuestion(hansQuestion2);
 
         Question sandraQuestion = new Question(3, "What can I cook with this?");
