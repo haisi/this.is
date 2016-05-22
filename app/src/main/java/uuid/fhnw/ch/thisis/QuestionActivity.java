@@ -65,6 +65,9 @@ public class QuestionActivity extends AppCompatActivity {
         descriptionView = (TextView) findViewById(R.id.questionDescription);
 
         chatList = (ListView) findViewById(R.id.chatList);
+        TextView emptyListText = (TextView) findViewById(R.id.emptyChatTextView);
+        chatList.setEmptyView(emptyListText);
+
         chatEditText = (EditText) findViewById(R.id.chatConversationEditText);
         sendButton = (ImageButton) findViewById(R.id.sendMessageButton);
 

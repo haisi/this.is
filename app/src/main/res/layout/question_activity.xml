@@ -78,6 +78,14 @@
                 android:stackFromBottom="true"
                 android:transcriptMode="alwaysScroll" />
 
+            <TextView
+                android:id="@+id/emptyChatTextView"
+                android:text="No answers yet!"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp" />
+
             <!-- Send message wrapper -->
             <LinearLayout
                 android:layout_weight="0"
