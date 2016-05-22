@@ -39,6 +39,7 @@ public enum DataService {
 
         Question sandraQuestion = new Question(3, "What can I cook with this?");
         sandraQuestion.setQuestioner(sandra);
+        sandraQuestion.setImageName("fridge");
         sandra.addQuestion(sandraQuestion);
 
         addAllQuestions(hansQuestion1, hansQuestion2, sandraQuestion);
