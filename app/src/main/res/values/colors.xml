@@ -19,6 +19,7 @@
     <color name="selected_tab">#071b27</color>
     <color name="my_message_bg">#67ffffff</color>
     <color name="default_font_color">#1c1c1c</color>
+    <color name="white_font_color">#d6d6d6</color>
     <color name="actionbar_divider_color">@color/default_gray</color>
     <color name="premium">#d741a4</color>
     <color name="premium_button_selected">#af2c8a</color>

@@ -33,6 +33,7 @@
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#5d5d5d"
                 tools:text="Hans Peter"/>
 
             <TextView
@@ -41,7 +42,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 tools:text="12:33"/>
 
         </LinearLayout>
@@ -53,6 +54,7 @@
             android:layout_marginTop="3dp">
 
             <TextView
+                style="@style/ContinuousTextStyle"
                 android:id="@+id/questionTitle"
                 android:layout_weight="1"
                 android:layout_width="fill_parent"
@@ -67,25 +69,19 @@ amet, consectetuer adipiscing elit. Aenean commo"/>
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/questionStatusImage"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center_horizontal"
-                    android:src="@color/colorPrimaryDark"/>
-
                 <TextView
                     android:id="@+id/numberOfAnswers"
                     android:gravity="center_horizontal"
                     android:layout_gravity="center_vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
+                    android:paddingLeft="7dp"
+                    android:paddingRight="7dp"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
                     android:layout_marginLeft="5dp"
                     android:textColor="#000000"
+                    android:textSize="12sp"
                     tools:text="Answers 4"/>
 
 
