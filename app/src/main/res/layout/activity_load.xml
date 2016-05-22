@@ -6,7 +6,7 @@
 <!--</LinearLayout>-->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:background="#0099cc" tools:context=".LoadActivity">
+    android:layout_height="match_parent" android:background="@drawable/background" tools:context=".LoadActivity">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
@@ -15,6 +15,15 @@
         android:id="@+id/load_image"
         android:text="This is"
         android:textSize="40sp"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:keepScreenOn="true"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_marginTop="100dp"
+        android:text="Answering you questions!"
+        android:textSize="25sp"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:keepScreenOn="true"

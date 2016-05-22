@@ -30,7 +30,11 @@ public class LoadActivity extends Activity {
 
         startTime = new Date();
 
-        openNextActivityWhenMinTimeHasPassed(MainActivity.class);
+        if (BuildConfig.DEBUG) {
+            openNextActivityWhenMinTimeHasPassed(MainActivity.class);
+        } else {
+            openNextActivityWhenMinTimeHasPassed(SignUpActivity.class);
+        }
     }
 
     /**
