@@ -31,12 +31,18 @@
         android:id="@+id/descriptionWrapper"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/question_description_bg"
+        android:layout_margin="10dp"
+        android:padding="10dp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/questionTitle"
+            style="@style/ContinuousTextStyle"
+            android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="20sp"
             tools:text="Here comes the title" />
 
         <ImageView
@@ -47,6 +53,7 @@
 
         <TextView
             android:id="@+id/questionDescription"
+            style="@style/ContinuousTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="Here comes the description. Lorem lipsum" />
