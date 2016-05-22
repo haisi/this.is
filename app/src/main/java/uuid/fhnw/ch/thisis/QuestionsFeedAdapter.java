@@ -3,6 +3,7 @@ package uuid.fhnw.ch.thisis;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.view.View;
@@ -17,6 +18,7 @@ import java.util.Set;
 
 import uuid.fhnw.ch.thisis.business.Question;
 import uuid.fhnw.ch.thisis.util.DateUtil;
+import uuid.fhnw.ch.thisis.util.ImageUtils;
 
 /**
  * @author Hasan Kara <hasan.kara@fhnw.ch>
@@ -67,7 +69,9 @@ public class QuestionsFeedAdapter extends ArrayAdapter<Question> {
         if (question.getImageName() != null) {
             Resources res = getContext().getResources();
             int resId = res.getIdentifier(question.getImageName(), "drawable", getContext().getPackageName());
-            holder.image.setImageResource(resId);
+
+            Bitmap bitmap = ImageUtils.decodeDownsampledBitmap(res, resId, holder.image.getWidth(), holder.image.getHeight());
+            holder.image.setImageBitmap(bitmap);
         } else {
             holder.image.setVisibility(View.GONE);
         }
