@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Set;
 
@@ -124,9 +126,25 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        if (question.getQuestioner().getName().equals(DataService.INSTACNE.currentUser().getName())
+                && !question.isAnswered()) {
+            getMenuInflater().inflate(R.menu.my_question_menu, menu);
+        }
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
+                onBackPressed();
+                return true;
+            case R.id.closeQuestionItem:
+                // // FIXME: 22.05.2016 add dialog to select helpful users
+                Toast.makeText(this, "Closing question", Toast.LENGTH_SHORT).show();
+                question.setAnswered(true);
                 onBackPressed();
                 return true;
             default:

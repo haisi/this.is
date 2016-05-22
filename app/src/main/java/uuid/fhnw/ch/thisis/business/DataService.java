@@ -28,6 +28,7 @@ public enum DataService {
         hansQuestion1.setDescription("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.");
         hansQuestion1.setQuestioner(hans);
         hansQuestion1.setImageName("japanese_sign");
+        hansQuestion1.setAnswered(true);
         hans.addQuestion(hansQuestion1);
 
         addChatMessagesToQuestion1(hansQuestion1);
@@ -36,7 +37,11 @@ public enum DataService {
         hansQuestion2.setQuestioner(hans);
         hans.addQuestion(hansQuestion2);
 
-        addAllQuestions(hansQuestion1, hansQuestion2);
+        Question sandraQuestion = new Question(3, "What can I cook with this?");
+        sandraQuestion.setQuestioner(sandra);
+        sandra.addQuestion(sandraQuestion);
+
+        addAllQuestions(hansQuestion1, hansQuestion2, sandraQuestion);
         addAllUsers(hans, sandra, reto);
 
     }
