@@ -89,6 +89,7 @@
     </LinearLayout>
 
     <Button
+        style="@style/DefaultButton"
         android:id="@+id/askQuestionButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

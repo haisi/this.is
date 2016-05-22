@@ -16,14 +16,22 @@
         android:text="To sign up to this.is you need to log in with a twitter or facebook account."/>
 
     <Button
+        style="@style/DefaultButton"
         android:onClick="withFacebook"
+        android:drawableLeft="@drawable/facebook"
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/white_font_color"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:text="Sign up with facebook"/>
 
     <Button
+        style="@style/DefaultButton"
         android:onClick="withTwitter"
+        android:drawableLeft="@drawable/twitter"
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/white_font_color"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sign up with twitter"/>
