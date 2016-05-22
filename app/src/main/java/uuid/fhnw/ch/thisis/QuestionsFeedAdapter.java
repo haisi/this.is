@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Set;
 
 import uuid.fhnw.ch.thisis.business.Question;
+import uuid.fhnw.ch.thisis.util.DateUtil;
 
 /**
  * @author Hasan Kara <hasan.kara@fhnw.ch>
@@ -54,7 +55,7 @@ public class QuestionsFeedAdapter extends ArrayAdapter<Question> {
         }
 
         holder.title.setText(title);
-        holder.date.setText(createdDate.toString());
+        holder.date.setText(DateUtil.getFormattedDate(createdDate));
         holder.numberOfAnswers.setText(String.valueOf(numberOfAnswers));
 
         return convertView;
