@@ -40,31 +40,50 @@
             android:hint="Put your question here"
              />
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:background="@drawable/image_bg"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <LinearLayout
+                android:orientation="vertical"
+                android:background="@drawable/image_bg"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/newQuestionImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:background="@drawable/image_border"
+                    android:src="@drawable/ic_menu_camera"/>
+
+                <TextView
+                    android:id="@+id/optionallyAddImage"
+                    android:padding="5dp"
+                    android:background="#4e4e4e"
+                    android:textColor="#c1c1c1"
+                    android:text="Optionally add an image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
             <ImageView
-                android:id="@+id/newQuestionImage"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:background="@drawable/image_border"
-                android:src="@drawable/ic_menu_camera"/>
+                android:id="@+id/removeImageButton"
+                android:src="@android:drawable/ic_input_add"
+                android:tint="#9e0404"
+                android:rotation="45"
+                android:layout_gravity="right"
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:layout_marginRight="10dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
 
-            <TextView
-                android:id="@+id/optionallyAddImage"
-                android:padding="5dp"
-                android:background="#4e4e4e"
-                android:textColor="#c1c1c1"
-                android:text="Optionally add an image"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+        </FrameLayout>
 
-        </LinearLayout>
 
         <EditText
             android:id="@+id/questionDescriptionEdit"

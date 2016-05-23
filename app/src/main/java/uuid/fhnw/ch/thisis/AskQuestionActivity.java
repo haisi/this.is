@@ -29,6 +29,8 @@ import uuid.fhnw.ch.thisis.util.ImageUtils;
 public class AskQuestionActivity extends AppCompatActivity {
 
     private TextView optionalText;
+    private ImageView removeImageButton;
+    private ImageView newQuestionImage;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,7 +46,21 @@ public class AskQuestionActivity extends AppCompatActivity {
         final EditText titleEdit = (EditText) findViewById(R.id.questionTitle);
         final EditText descriptionEdit = (EditText) findViewById(R.id.questionDescriptionEdit);
 
-        final ImageView newQuestionImage = (ImageView) findViewById(R.id.newQuestionImage);
+        removeImageButton = (ImageView) findViewById(R.id.removeImageButton);
+        removeImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.setVisibility(View.GONE);
+                optionalText.setVisibility(View.VISIBLE);
+
+                selectedImage = null;
+
+                newQuestionImage.setImageResource(R.drawable.ic_menu_camera);
+
+            }
+        });
+
+        newQuestionImage = (ImageView) findViewById(R.id.newQuestionImage);
         optionalText = (TextView) findViewById(R.id.optionallyAddImage);
         addListener(newQuestionImage);
 
@@ -95,6 +111,7 @@ public class AskQuestionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 optionalText.setVisibility(View.GONE);
+                removeImageButton.setVisibility(View.VISIBLE);
 
                 Resources res = context.getResources();
 
