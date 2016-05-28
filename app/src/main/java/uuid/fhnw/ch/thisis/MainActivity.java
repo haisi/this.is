@@ -17,6 +17,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Set;
 
 import uuid.fhnw.ch.thisis.business.DataService;
@@ -56,7 +58,21 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         ArrayList<Question> allQuestions = new ArrayList<>(DataService.INSTACNE.allQuestions);
-        feedAdapter = new QuestionsFeedAdapter(getBaseContext(), allQuestions);
+        ArrayList<Question> onlyUnansweredQuestions = new ArrayList<>();
+        for (Question question : allQuestions) {
+            if (!question.isAnswered()) {
+                onlyUnansweredQuestions.add(question);
+            }
+        }
+
+        Collections.sort(onlyUnansweredQuestions, new Comparator<Question>() {
+            @Override
+            public int compare(Question lhs, Question rhs) {
+                return rhs.getCreated().compareTo(lhs.getCreated());
+            }
+        });
+
+        feedAdapter = new QuestionsFeedAdapter(getBaseContext(), onlyUnansweredQuestions);
         final ListView questionFeed = (ListView) findViewById(R.id.questionFeed);
         questionFeed.setAdapter(feedAdapter);
 
@@ -79,7 +95,23 @@ public class MainActivity extends AppCompatActivity
     protected void onResume() {
         super.onResume();
         feedAdapter.clear();
-        feedAdapter.addAll(new ArrayList<>(DataService.INSTACNE.allQuestions));
+
+        ArrayList<Question> allQuestions = new ArrayList<>(DataService.INSTACNE.allQuestions);
+        ArrayList<Question> onlyUnansweredQuestions = new ArrayList<>();
+        for (Question question : allQuestions) {
+            if (!question.isAnswered()) {
+                onlyUnansweredQuestions.add(question);
+            }
+        }
+
+        Collections.sort(onlyUnansweredQuestions, new Comparator<Question>() {
+            @Override
+            public int compare(Question lhs, Question rhs) {
+                return rhs.getCreated().compareTo(lhs.getCreated());
+            }
+        });
+
+        feedAdapter.addAll(new ArrayList<>(onlyUnansweredQuestions));
         feedAdapter.notifyDataSetChanged();
     }
 
