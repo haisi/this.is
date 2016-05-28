@@ -51,7 +51,7 @@ public class IntroActivity extends AppIntro {
 
     @Override
     public void onDonePressed() {
-        startActivity(new Intent(getBaseContext(), MainActivity.class));
+        startActivity(new Intent(getBaseContext(), SignUpActivity.class));
         finish();
     }
 
