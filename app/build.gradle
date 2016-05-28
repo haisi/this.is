@@ -27,6 +27,7 @@ dependencies {
 
     compile 'com.mikhaellopez:circularimageview:3.0.2'
 
+    compile 'com.github.paolorotolo:appintro:3.4.0'
 
     compile 'io.reactivex:rxandroid:1.2.0'
     // Because RxAndroid releases are few and far between, it is recommended you also

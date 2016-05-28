@@ -23,6 +23,11 @@
         </activity>
 
         <activity
+            android:name=".IntroActivity"
+            android:label="Intro"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
             android:name=".SignUpActivity"
             android:label="Sign up"
             android:theme="@style/AppTheme.NoActionBar">
