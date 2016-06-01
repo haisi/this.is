@@ -32,6 +32,9 @@ public class QuestionsFeedAdapter extends ArrayAdapter<Question> {
     private final int darkFontColor;
     private final int lightFontColor;
 
+    private final Drawable normalRowBg;
+    private final Drawable answeredRowBg;
+
     public QuestionsFeedAdapter(Context context, List<Question> objects) {
         super(context, R.layout.row_layout_question_feed, objects);
 
@@ -40,6 +43,9 @@ public class QuestionsFeedAdapter extends ArrayAdapter<Question> {
 
         darkFontColor = getContext().getResources().getColor(R.color.default_font_color);
         lightFontColor = getContext().getResources().getColor(R.color.white_font_color);
+
+        normalRowBg = getContext().getResources().getDrawable(R.drawable.question_description_bg);
+        answeredRowBg = getContext().getResources().getDrawable(R.drawable.answered_row_bg);
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -62,10 +68,12 @@ public class QuestionsFeedAdapter extends ArrayAdapter<Question> {
         if (answered) {
             holder.numberOfAnswers.setBackground(answeredBg);
             holder.numberOfAnswers.setTextColor(lightFontColor);
+            holder.root.setBackground(answeredRowBg);
 
         } else {
             holder.numberOfAnswers.setBackground(notAnsweredBg);
             holder.numberOfAnswers.setTextColor(darkFontColor);
+            holder.root.setBackground(normalRowBg);
         }
 
         if (question.getImageName() != null) {
@@ -92,6 +100,7 @@ public class QuestionsFeedAdapter extends ArrayAdapter<Question> {
 
     class ViewHolder {
 
+        View root;
         ImageView image;
         TextView questionerName;
         TextView title;
@@ -100,6 +109,7 @@ public class QuestionsFeedAdapter extends ArrayAdapter<Question> {
         TextView numberOfAnswers;
 
         public ViewHolder(View view){
+            root = view.findViewById(R.id.feedRowRoot);
             image = (ImageView) view.findViewById(R.id.questionImage);
             title = (TextView) view.findViewById(R.id.questionTitle);
             questionerName = (TextView) view.findViewById(R.id.questionerName);
