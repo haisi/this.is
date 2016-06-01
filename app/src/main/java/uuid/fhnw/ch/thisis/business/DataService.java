@@ -1,6 +1,8 @@
 package uuid.fhnw.ch.thisis.business;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -13,6 +15,8 @@ public enum DataService {
 
     public Set<User> allUsers = new TreeSet<>();
     public Set<Question> allQuestions = new TreeSet<>();
+
+    public List<String> subjects = new ArrayList<>();
 
     private final User hans;
     private final User sandra;

@@ -14,7 +14,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
+
+import com.volokh.danylo.hashtaghelper.HashTagHelper;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -89,6 +92,18 @@ public class MainActivity extends AppCompatActivity
                 startActivity(intent);
             }
         });
+
+        EditText subjects = (EditText) findViewById(R.id.subjects);
+        final HashTagHelper mTextHashTagHelper = HashTagHelper.Creator.create(getResources().getColor(R.color.colorPrimary), null);
+        mTextHashTagHelper.handle(subjects);
+
+        String subjectsStr = "";
+
+        for (String subject : DataService.INSTACNE.subjects) {
+            subjectsStr += "#" + subject + " ";
+        }
+
+        subjects.setText(subjectsStr);
     }
 
     @Override

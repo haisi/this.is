@@ -30,7 +30,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         Toast.makeText(getApplicationContext(), "Successful sign up", Toast.LENGTH_SHORT).show();
 
-        Intent intent = new Intent(getBaseContext(), MainActivity.class);
+        Intent intent = new Intent(getBaseContext(), HashtagsActivity.class);
         startActivity(intent);
         finish();
     }
