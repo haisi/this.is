@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.mikhaellopez.circularimageview.CircularImageView;
 import com.volokh.danylo.hashtaghelper.HashTagHelper;
 
 import java.util.HashSet;
@@ -176,16 +178,31 @@ public class QuestionActivity extends AppCompatActivity {
                 container.setPadding(20, 0, 20, 0);
                 container.setOrientation(LinearLayout.VERTICAL);
 
+                float imageSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 50, this.getResources().getDisplayMetrics());
+
                 for (User user : users) {
+
+                    CircularImageView circularImageView = new CircularImageView(this);
+                    circularImageView.setLayoutParams(new TableLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 0f));
+
+                    circularImageView.getLayoutParams().height = (int) imageSize;
+                    circularImageView.getLayoutParams().width = (int) imageSize;
+
+                    Resources res = this.getResources();
+                    int resId = res.getIdentifier("user_image_" + user.getName().toLowerCase(), "drawable", this.getPackageName());
+                    circularImageView.setImageResource(resId);
+
                     TextView name = new TextView(this);
                     name.setLayoutParams(new TableLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1f));
                     name.setText(user.getName());
+
                     Switch toggle = new Switch(this);
                     toggle.setTextOff("");
                     toggle.setTextOn("");
 
                     LinearLayout row = new LinearLayout(this);
                     row.setOrientation(LinearLayout.HORIZONTAL);
+                    row.addView(circularImageView);
                     row.addView(name);
                     row.addView(toggle);
 
