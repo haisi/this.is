@@ -1,12 +1,16 @@
 package uuid.fhnw.ch.thisis;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
@@ -30,6 +34,14 @@ public class MyQuestionsActivity extends AppCompatActivity {
     private QuestionsFeedAdapter feedAdapter;
     private boolean showMyQuestions;
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private void setStatusBarColor() {
+        Window window = getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +52,8 @@ public class MyQuestionsActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        setStatusBarColor();
 
         showMyQuestions = getIntent().getExtras().getString(BUNDLE_KEY, BUNDLE_QUESTIONS).equals(BUNDLE_QUESTIONS);
 
