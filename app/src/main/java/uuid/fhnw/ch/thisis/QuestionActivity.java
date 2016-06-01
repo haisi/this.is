@@ -19,6 +19,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.volokh.danylo.hashtaghelper.HashTagHelper;
+
 import java.util.Set;
 
 import uuid.fhnw.ch.thisis.business.Answer;
@@ -61,6 +63,9 @@ public class QuestionActivity extends AppCompatActivity {
 
 
         titleView = (TextView) findViewById(R.id.questionTitle);
+        HashTagHelper mTextHashTagHelper = HashTagHelper.Creator.create(getResources().getColor(R.color.colorPrimary), null);
+        mTextHashTagHelper.handle(titleView);
+
         imageView = (ImageView) findViewById(R.id.questionImageView);
         descriptionView = (TextView) findViewById(R.id.questionDescription);
 

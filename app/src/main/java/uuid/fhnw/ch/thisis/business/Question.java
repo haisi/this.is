@@ -21,6 +21,8 @@ public class Question implements Comparable<Question> {
 
     private List<Answer> answers = new ArrayList<>();
 
+    private List<String> hastags = new ArrayList<>();
+
     public Question(long id, String title) {
         this.id = id;
         this.title = title;
@@ -76,6 +78,14 @@ public class Question implements Comparable<Question> {
 
     public void addAnswer(Answer answer) {
         this.answers.add(answer);
+    }
+
+    public List<String> getHastags() {
+        return hastags;
+    }
+
+    public void setHastags(List<String> hastags) {
+        this.hastags = hastags;
     }
 
     public boolean isAnswered() {

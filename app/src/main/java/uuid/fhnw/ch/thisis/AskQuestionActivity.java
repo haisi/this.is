@@ -16,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.volokh.danylo.hashtaghelper.HashTagHelper;
+
 import java.util.Date;
 import java.util.Random;
 
@@ -32,6 +34,8 @@ public class AskQuestionActivity extends AppCompatActivity {
     private ImageView removeImageButton;
     private ImageView newQuestionImage;
 
+    private HashTagHelper mTextHashTagHelper;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +49,9 @@ public class AskQuestionActivity extends AppCompatActivity {
 
         final EditText titleEdit = (EditText) findViewById(R.id.questionTitle);
         final EditText descriptionEdit = (EditText) findViewById(R.id.questionDescriptionEdit);
+
+        mTextHashTagHelper = HashTagHelper.Creator.create(getResources().getColor(R.color.colorPrimary), null);
+        mTextHashTagHelper.handle(titleEdit);
 
         removeImageButton = (ImageView) findViewById(R.id.removeImageButton);
         removeImageButton.setOnClickListener(new View.OnClickListener() {
@@ -76,6 +83,7 @@ public class AskQuestionActivity extends AppCompatActivity {
 
                 Question newQuestion = new Question(new Date().getTime(), title);
                 newQuestion.setQuestioner(DataService.INSTACNE.currentUser());
+                newQuestion.setHastags(mTextHashTagHelper.getAllHashTags());
 
                 String description = descriptionEdit.getText().toString();
                 if (!description.trim().isEmpty()) {

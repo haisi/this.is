@@ -12,6 +12,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.volokh.danylo.hashtaghelper.HashTagHelper;
+
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -77,6 +79,10 @@ public class QuestionsFeedAdapter extends ArrayAdapter<Question> {
         }
 
         holder.title.setText(title);
+
+        HashTagHelper mTextHashTagHelper = HashTagHelper.Creator.create(getContext().getResources().getColor(R.color.colorPrimary), null);
+        mTextHashTagHelper.handle(holder.title);
+
         holder.date.setText(DateUtil.getFormattedDate(createdDate));
         holder.numberOfAnswers.setText("Answers: " + String.valueOf(numberOfAnswers));
         holder.questionerName.setText(question.getQuestioner().getName());

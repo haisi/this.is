@@ -33,13 +33,13 @@ public enum DataService {
 
         addChatMessagesToQuestion1(hansQuestion1);
 
-        Question hansQuestion2 = new Question(2, "What kind of drinking games are there?");
+        Question hansQuestion2 = new Question(2, "What kind of #drinking games are there?");
         hansQuestion2.setQuestioner(hans);
         hansQuestion2.setDescription("We are in a group watching a movie and would love to here you suggestions!");
         hans.addQuestion(hansQuestion2);
         addChatMessagesToQuestion2(hansQuestion2);
 
-        Question sandraQuestion = new Question(3, "What can I cook with this?");
+        Question sandraQuestion = new Question(3, "What can I #cook with this?");
         sandraQuestion.setQuestioner(sandra);
         sandraQuestion.setImageName("fridge");
         sandra.addQuestion(sandraQuestion);
