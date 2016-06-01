@@ -1,9 +1,11 @@
 package uuid.fhnw.ch.thisis;
 
+import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -13,14 +15,19 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.Switch;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.volokh.danylo.hashtaghelper.HashTagHelper;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import uuid.fhnw.ch.thisis.business.Answer;
@@ -150,10 +157,60 @@ public class QuestionActivity extends AppCompatActivity {
                 onBackPressed();
                 return true;
             case R.id.closeQuestionItem:
-                // // FIXME: 22.05.2016 add dialog to select helpful users
-                Toast.makeText(this, "Closing question", Toast.LENGTH_SHORT).show();
-                question.setAnswered(true);
-                onBackPressed();
+
+                Set<User> users = new HashSet<>();
+                for (Answer answer : question.getAnswers()) {
+                    if (!answer.user.equals(DataService.INSTACNE.currentUser())) {
+                        users.add(answer.user);
+                    }
+                }
+
+                if (users.size() == 0) {
+                    Toast.makeText(this, "Closing question", Toast.LENGTH_SHORT).show();
+                    question.setAnswered(true);
+                    onBackPressed();
+                    return true;
+                }
+
+                LinearLayout container = new LinearLayout(this);
+                container.setPadding(20, 0, 20, 0);
+                container.setOrientation(LinearLayout.VERTICAL);
+
+                for (User user : users) {
+                    TextView name = new TextView(this);
+                    name.setLayoutParams(new TableLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1f));
+                    name.setText(user.getName());
+                    Switch toggle = new Switch(this);
+                    toggle.setTextOff("");
+                    toggle.setTextOn("");
+
+                    LinearLayout row = new LinearLayout(this);
+                    row.setOrientation(LinearLayout.HORIZONTAL);
+                    row.addView(name);
+                    row.addView(toggle);
+
+                    container.addView(row);
+                }
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setView(container);
+                builder
+                        .setTitle("Who was helpful")
+                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                question.setAnswered(true);
+                                Toast.makeText(QuestionActivity.this, "Closing question", Toast.LENGTH_SHORT).show();
+                                onBackPressed();
+                            }
+                        })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // leave empty
+                            }
+                        });
+
+                builder.create().show();
+
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
