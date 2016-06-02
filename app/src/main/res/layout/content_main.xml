@@ -12,12 +12,20 @@
     tools:context="uuid.fhnw.ch.thisis.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
+    <LinearLayout
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_width="0px"
+        android:layout_height="0px"/>
+
     <EditText
         android:id="@+id/subjects"
         android:layout_marginBottom="10dp"
         android:background="@drawable/question_description_bg"
         android:hint="Filter questions by #subjects"
         android:padding="10dp"
+        android:nextFocusUp="@id/subjects"
+        android:nextFocusLeft="@id/subjects"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
