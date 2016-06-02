@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -85,7 +87,7 @@ public class AskQuestionActivity extends AppCompatActivity {
         optionalText = (TextView) findViewById(R.id.optionallyAddImage);
         addListener(newQuestionImage);
 
-        Button saveButton = (Button) findViewById(R.id.askQuestionButton);
+        final Button saveButton = (Button) findViewById(R.id.askQuestionButton);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,6 +116,28 @@ public class AskQuestionActivity extends AppCompatActivity {
 
                 DataService.INSTACNE.addAllQuestions(newQuestion);
                 AskQuestionActivity.this.onBackPressed();
+            }
+        });
+
+        titleEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                int titleLength = titleEdit.getText().length();
+                if (titleLength > 0) {
+                    saveButton.setEnabled(true);
+                } else {
+                    saveButton.setEnabled(false);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
             }
         });
 
