@@ -14,7 +14,7 @@ public class LoadActivity extends Activity {
 
     static {
         if (BuildConfig.DEBUG) {
-            MIN_MILLISECONDS_OF_SPLASH_SCREEN = 0;
+            MIN_MILLISECONDS_OF_SPLASH_SCREEN = 2000;
         } else {
             MIN_MILLISECONDS_OF_SPLASH_SCREEN = 2000;
         }
